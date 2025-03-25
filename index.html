@@ -52,9 +52,8 @@
     <main>
         <!-- Hero Sections -->
         <section class="hero" aria-labelledby="main-hero-heading">
-            <h1 id="main-hero-heading">Save Big on African Art 🎨</h1>
             <p>Discover unique, handcrafted pieces from talented African artists.</p>
-            <button class="btn">Shop Now</button>
+            <a href="#" class="btn">View All Artworks</a>
         </section>
 
         <section class="hero-section" aria-labelledby="culture-hero-heading">
@@ -68,7 +67,7 @@
             <h2 id="featured-heading">Featured Artworks</h2>
             <div class="product-grid">
                 <article class="product">
-                    <img src="art1.jpg" alt="Handcrafted wooden mask from Ghana" loading="lazy">
+                    <img src="image.jpg(1).jpeg" alt="Handcrafted wooden mask from Ghana" loading="lazy">
                     <div class="product-info">
                         <h3>Handcrafted Mask</h3>
                         <p class="origin">Ghana</p>
@@ -78,7 +77,7 @@
                 </article>
 
                 <article class="product">
-                    <img src="art2.jpg" alt="Beaded necklace from Kenya" loading="lazy">
+                    <img src="image.jpg" alt="Beaded necklace from Kenya" loading="lazy">
                     <div class="product-info">
                         <h3>Beaded Necklace</h3>
                         <p class="origin">Kenya</p>
@@ -88,12 +87,57 @@
                 </article>
 
                 <article class="product">
-                    <img src="art3.jpg" alt="Abstract painting from South Africa" loading="lazy">
+                    <img src="image.jpeg" alt="Abstract painting from South Africa" loading="lazy">
                     <div class="product-info">
                         <h3>Abstract Painting</h3>
                         <p class="origin">South Africa</p>
                         <p class="price">$80.00</p>
                         <button class="add-to-cart" aria-label="Add Abstract Painting to cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article class="product">
+                    <img src="african.jpeg" alt="Handwork art from Ghana" loading="lazy">
+                    <div class="product-info">
+                        <h3>Water Painting</h3>
+                        <p class="origin">Ghana</p>
+                        <p class="price">$50.00</p>
+                        <button class="add-to-cart" aria-label="Add Water Painting to cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article class="product">
+                    <img src="img.jpg.jpeg" alt="Handcrafted wooden mask from Ghana" loading="lazy">
+                    <div class="product-info">
+                        <h3>Drawing</h3>
+                        <p class="origin">Congo</p>
+                        <p class="price">$100.00</p>
+                        <button class="add-to-cart" aria-label="Add Drawing to cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article class="product">
+                    <img src="img.jpeg.jpeg" alt="Painting from Tanzania" loading="lazy">
+                    <div class="product-info">
+                        <h3>Painting</h3>
+                        <p class="origin">Tanzania</p>
+                        <p class="price">$90.00</p>
+                        <button class="add-to-cart" aria-label="Add Painting to cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article class="product">
+                    <img src="img.jpeg" alt="Artworks from Zimbabwe" loading="lazy">
+                    <div class="product-info">
+                        <h3>Painting</h3>
+                        <p class="origin">Zimbabwe</p>
+                        <p class="price">$70.00</p>
+                        <button class="add-to-cart" aria-label="Add Painting to cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article class="product">
+                    <img src="imge.jpeg" alt="Painting from Zambia" loading="lazy">
+                    <div class="product-info">
+                        <h3>Painting</h3>
+                        <p class="origin">Zambia</p>
+                        <p class="price">$40.00</p>
+                        <button class="add-to-cart" aria-label="Add Painting to cart">Add to Cart</button>
                     </div>
                 </article>
             </div>
@@ -103,6 +147,10 @@
     <!-- Cart Notification -->
     <div id="cart-notification" class="hidden" aria-live="polite">
         Item added to cart! 🛒
+        <button class="close-btn" aria-label="Close notification">��️</button>
+        <span id="cart-notification-count">0</span>
+        <button class="view-cart-btn" aria-label="View cart">View Cart</button>
+
     </div>
 
     <!-- Footer -->
