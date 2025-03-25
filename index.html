@@ -3,78 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about African Art, Culture, and History">
-    <title>African Art & Culture</title>
+    <title>Made In Africa | Authentic African Art Marketplace</title>
+    <meta name="description" content="Discover handcrafted African artworks directly from talented artisans across the continent">
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>Made In Africa</h1>
-            <nav>
-                <ul>
-                    <li><a href="#art">Art</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#history">History</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="logo">Made In Africa</div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search for artwork..." aria-label="Search artworks">
+            <button aria-label="Search">🔍</button>
         </div>
+
+        <nav class="user-menu">
+            <div class="dropdown">
+                <button class="dropbtn" aria-expanded="false">Account ▼</button>
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Orders</a>
+                    <a href="#">Wishlist</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+            <a href="#" class="cart-link" aria-label="Shopping cart">
+                Cart 🛒 <span id="cart-count">0</span>
+            </a>
+        </nav>
     </header>
 
-    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" aria-label="Main navigation">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Paintings</a></li>
+            <li><a href="#">Sculptures</a></li>
+            <li><a href="#">Beadwork</a></li>
+            <li><a href="#">Textiles</a></li>
+            <li><a href="#">Pottery</a></li>
+            <li><a href="#">Jewelry</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h2>Discover the Rich Heritage of Africa</h2>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Sections -->
+        <section class="hero" aria-labelledby="main-hero-heading">
+            <h1 id="main-hero-heading">Save Big on African Art 🎨</h1>
+            <p>Discover unique, handcrafted pieces from talented African artists.</p>
+            <button class="btn">Shop Now</button>
+        </section>
+
+        <section class="hero-section" aria-labelledby="culture-hero-heading">
+            <h2 id="culture-hero-heading">Discover the Rich Heritage of Africa</h2>
             <p>Explore the fascinating world of African art, culture, and history.</p>
-            <button onclick="exploreMore()">Explore More</button>
-        </div>
-    </section>
+            <a href="#" class="btn">Explore More</a>
+        </section>
 
-    <section id="art" class="fade-in">
-        <div class="container">
-            <h2><M class="I A"></M></h2>
-            <p>African art reflects the diverse cultures, languages, and traditions across the continent. It includes sculptures, masks, textiles, beadwork, and more.</p>
-            <button onclick="showMoreArt()">Show More</button>
-            <div id="more-art" class="hidden">
-                <p>The purpose of African art is often to communicate spiritual beliefs, tell stories, or symbolize cultural values. It's an essential part of rituals and celebrations.</p>
+        <!-- Featured Art -->
+        <section class="products" aria-labelledby="featured-heading">
+            <h2 id="featured-heading">Featured Artworks</h2>
+            <div class="product-grid">
+                <article class="product">
+                    <img src="art1.jpg" alt="Handcrafted wooden mask from Ghana" loading="lazy">
+                    <div class="product-info">
+                        <h3>Handcrafted Mask</h3>
+                        <p class="origin">Ghana</p>
+                        <p class="price">$50.00</p>
+                        <button class="add-to-cart" aria-label="Add Handcrafted Mask to cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product">
+                    <img src="art2.jpg" alt="Beaded necklace from Kenya" loading="lazy">
+                    <div class="product-info">
+                        <h3>Beaded Necklace</h3>
+                        <p class="origin">Kenya</p>
+                        <p class="price">$30.00</p>
+                        <button class="add-to-cart" aria-label="Add Beaded Necklace to cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product">
+                    <img src="art3.jpg" alt="Abstract painting from South Africa" loading="lazy">
+                    <div class="product-info">
+                        <h3>Abstract Painting</h3>
+                        <p class="origin">South Africa</p>
+                        <p class="price">$80.00</p>
+                        <button class="add-to-cart" aria-label="Add Abstract Painting to cart">Add to Cart</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Notification -->
+    <div id="cart-notification" class="hidden" aria-live="polite">
+        Item added to cart! 🛒
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Made In Africa</h3>
+                <p>Connecting the world with authentic African craftsmanship since 2020.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Contact</a>
+                <a href="#">Artists</a>
             </div>
         </div>
-    </section>
-
-    <section id="culture" class="fade-in">
-        <div class="container">
-            <h2>African Culture</h2>
-            <p>Africa is home to thousands of distinct cultures, each with its own language, traditions, and beliefs. Music, dance, and oral storytelling are central to many African societies.</p>
-        </div>
-    </section>
-
-    <section id="history" class="fade-in">
-        <div class="container">
-            <h2>History of Africa</h2>
-            <p>The history of Africa is vast and varied, covering ancient civilizations such as Egypt, Mali, and Great Zimbabwe. It also includes the impact of colonization and the fight for independence.</p>
-        </div>
-    </section>
-
-
-    <section id="contact" class="fade-in">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have questions? Reach out to us!</p>
-            <form>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 African Art & Culture. All Rights Reserved.</p>
+        <div class="copyright">
+            <p>© 2025 Made In Africa. All Rights Reserved.</p>
         </div>
     </footer>
 </body>

@@ -1,79 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll("nav ul li a").forEach(anchor => {
-        anchor.addEventListener("click", function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            document.getElementById(targetId).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-
-    // Show more content in the Art section with animation
-    window.showMoreArt = function () {
-        const moreArt = document.getElementById("more-art");
-        moreArt.classList.toggle("expanded");
+    // Cart state
+    const cart = {
+        count: 0,
+        items: [],
+        update() {
+            document.getElementById("cart-count").textContent = this.count;
+            this.notify();
+        },
+        notify() {
+            const note = document.getElementById("cart-notification");
+            note.classList.remove("hidden");
+            note.textContent = `Item added! (Total: ${this.count})`;
+            setTimeout(() => note.classList.add("hidden"), 3000);
+        },
+        add(name, price) {
+            this.count++;
+            this.items.push({ name, price, id: Date.now() });
+            this.update();
+        }
     };
 
-    // Hero button interaction
-    window.exploreMore = function () {
-        document.getElementById("art").scrollIntoView({
-            behavior: "smooth"
-        });
-    };
+    // Initialize cart
+    document.getElementById("cart-count").textContent = cart.count;
 
-    // Fade-in effect on scroll
-    const fadeInElements = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+    // Add to cart
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const card = e.target.closest(".product");
+            cart.add(
+                card.querySelector("h3").textContent,
+                card.querySelector(".price").textContent
+            );
+            
+            // Visual feedback
+            btn.textContent = "✓ Added";
+            btn.style.backgroundColor = "#4CAF50";
+            setTimeout(() => {
+                btn.textContent = "Add to Cart";
+                btn.style.backgroundColor = "";
+            }, 2000);
         });
-    }, { threshold: 0.2 });
-
-    fadeInElements.forEach(element => {
-        observer.observe(element);
+        
     });
 
-    // Dynamic theme switcher
-    const themeToggle = document.createElement("button");
-    themeToggle.innerText = "Toggle Theme";
-    themeToggle.classList.add("theme-toggle");
-    document.body.appendChild(themeToggle);
+    // Cart dropdown
+    const cartLink = document.querySelector(".cart-link");
+    const dropdown = document.createElement("div");
+    dropdown.className = "cart-dropdown hidden";
+    document.querySelector(".user-menu").appendChild(dropdown);
 
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
+    cartLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle("hidden");
+        if (!dropdown.classList.contains("hidden")) showCart();
     });
 
-    // Interactive form validation
-    const contactForm = document.querySelector("form");
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const name = contactForm.querySelector("input[name='name']").value;
-        const email = contactForm.querySelector("input[name='email']").value;
-        const message = contactForm.querySelector("textarea[name='message']").value;
-
-        if (!name || !email || !message) {
-            alert("Please fill in all fields.");
+    function showCart() {
+        if (!cart.items.length) {
+            dropdown.innerHTML = "<p>Your cart is empty</p>";
             return;
         }
 
-        alert("Thank you for your message! We will get back to you soon.");
-        contactForm.reset();
-    });
+        const total = cart.items.reduce((sum, item) => 
+            sum + parseFloat(item.price.replace('$', '')), 0);
 
-    // Background animation effect
-    const particles = document.createElement("div");
-    particles.classList.add("particles");
-    document.body.appendChild(particles);
-
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement("span");
-        particle.classList.add("particle");
-        particle.style.top = Math.random() * 100 + "vh";
-        particle.style.left = Math.random() * 100 + "vw";
-        particles.appendChild(particle);
+        dropdown.innerHTML = `
+            <h4>Your Cart</h4>
+            <ul>
+                ${cart.items.map(item => `
+                    <li>
+                        <span>${item.name}</span>
+                        <span>${item.price}</span>
+                    </li>
+                `).join('')}
+            </ul>
+            <div class="cart-total">Total: $${total.toFixed(2)}</div>
+            <button class="checkout-btn">Checkout</button>
+        `;
     }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".user-menu")) {
+            dropdown.classList.add("hidden");
+        }
+    });
 });

@@ -1,0 +1,58 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Handcrafted African Mask",
+            "price": 89.99,
+            "category": "Sculptures",
+            "origin": "Ghana",
+            "description": "Authentic wooden ceremonial mask hand-carved by Ghanaian artisans",
+            "image": "mask-ghana.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Beaded Jewelry Set",
+            "price": 49.99,
+            "category": "Beadwork",
+            "origin": "Kenya",
+            "description": "Vibrant beaded necklace and bracelet set made by Maasai craftspeople",
+            "image": "beaded-jewelry.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Abstract African Painting",
+            "price": 199.99,
+            "category": "Paintings",
+            "origin": "South Africa",
+            "description": "Contemporary acrylic painting depicting African landscapes",
+            "image": "abstract-painting.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Kente Cloth",
+            "price": 129.99,
+            "category": "Textiles",
+            "origin": "Ghana",
+            "description": "Traditional handwoven Kente cloth in vibrant patterns",
+            "image": "kente-cloth.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Shona Stone Sculpture",
+            "price": 249.99,
+            "category": "Sculptures",
+            "origin": "Zimbabwe",
+            "description": "Soapstone sculpture carved by Shona artists",
+            "image": "stone-sculpture.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Mudcloth Wall Hanging",
+            "price": 79.99,
+            "category": "Textiles",
+            "origin": "Mali",
+            "description": "Traditional Bogolanfini mud-dyed cotton fabric",
+            "image": "mudcloth.jpg"
+        }
+    ]
+}

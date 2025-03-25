@@ -1,143 +1,259 @@
-/* Advanced CSS for the African Art & Culture Website */
-* {
+/* Base Styles */
+:root {
+    --black: #000;
+    --white: #fff;
+    --gray-dark: #222;
+    --gray-medium: #555;
+    --gray-light: #eee;
+    --gold-light: #f5d742;
+    --gold-dark: #e3a939;
+    --transition: all 0.3s ease;
+  }
+  
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    color: #222;
-    line-height: 1.8;
-}
-
-.container {
-    width: 85%;
-    margin: auto;
-    max-width: 1200px;
-}
-
-/* Header Styling */
-header {
-    background: linear-gradient(135deg, #2a3d45, #1e2b30);
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--black);
+    background: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--black);
+    color: var(--white);
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-header h1 {
-    font-size: 2.8em;
-    letter-spacing: 1.5px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px 0;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .logo {
+    font-size: 1.8rem;
     font-weight: bold;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #f4a261;
-}
-
-/* Hero Section */
-.hero {
-    height: 90vh;
-    background: url('https://source.unsplash.com/1600x900/?african,culture') no-repeat center center/cover;
+    background: linear-gradient(to right, var(--gold-light), var(--gold-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s infinite linear;
+  }
+  
+  @keyframes shine {
+    to { background-position: 100% 50%; }
+  }
+  
+  /* Search Bar */
+  .search-bar {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 20px;
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-/* Sections */
-section {
-    padding: 60px 0;
-    background-color: #fff;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    text-align: center;
-    color: #2a3d45;
-}
-
-section p {
-    font-size: 1.2em;
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.7;
-}
-
-/* Button Styling */
-button {
-    display: block;
-    background: #f4a261;
-    color: white;
-    padding: 12px 25px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 25px;
+  }
+  
+  .search-bar input {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--gray-medium);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-bar button {
+    padding: 0.5rem 1rem;
+    background: var(--gray-dark);
+    color: var(--white);
+    border: 1px solid var(--gray-medium);
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin: 20px auto;
-}
-
-button:hover {
-    background: #e76f51;
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    background-color: #2a3d45;
-    color: #fff;
-    padding: 15px 0;
+    transition: var(--transition);
+  }
+  
+  .search-bar button:hover {
+    background: var(--gray-medium);
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    background: var(--gray-dark);
+    height: calc(100vh - 60px);
+    position: fixed;
+    padding-top: 1.5rem;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+  }
+  
+  .sidebar li {
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--gray-medium);
+    transition: var(--transition);
+  }
+  
+  .sidebar li:hover {
+    background: var(--black);
+  }
+  
+  .sidebar a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* Main Content */
+  main {
+    margin-left: 220px;
+    padding: 2rem;
+  }
+  
+  /* Hero Sections */
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 50px;
-    font-size: 1.1em;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
+    background: url('african-pattern-bg.jpg') center/cover;
+    position: relative;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+  }
+  
+  .hero-content {
+    position: relative;
+    animation: fadeInUp 1s forwards 0.5s;
+  }
+  
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .hero, .hero-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-section {
+    background: var(--gray-light);
+    border-radius: 8px;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, var(--gold-light), var(--gold-dark));
+    color: var(--black);
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* Product Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .product {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: var(--transition);
+  }
+  
+  .product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .add-to-cart {
+    margin-top: auto;
+    padding: 0.75rem;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+  
+  .add-to-cart:hover {
+    background: var(--gray-dark);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--black);
+    color: var(--white);
+    margin-top: 2rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
     }
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
+    
+    main {
+      margin-left: 0;
     }
-    .hero {
-        font-size: 1.5em;
+    
+    header {
+      flex-direction: column;
+      gap: 1rem;
     }
-}
+    
+    .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .hero h1 {
+      font-size: 2rem;
+    }
+  }
