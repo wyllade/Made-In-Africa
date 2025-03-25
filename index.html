@@ -6,43 +6,69 @@
     <meta name="description" content="Learn about African Art, Culture, and History">
     <title>African Art & Culture</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>African Art & Culture</h1>
+            <h1>Made In Africa</h1>
             <nav>
                 <ul>
                     <li><a href="#art">Art</a></li>
                     <li><a href="#culture">Culture</a></li>
                     <li><a href="#history">History</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="art">
+    
+
+    <section class="hero">
         <div class="container">
-            <h2>African Art</h2>
+            <h2>Discover the Rich Heritage of Africa</h2>
+            <p>Explore the fascinating world of African art, culture, and history.</p>
+            <button onclick="exploreMore()">Explore More</button>
+        </div>
+    </section>
+
+    <section id="art" class="fade-in">
+        <div class="container">
+            <h2><M class="I A"></M></h2>
             <p>African art reflects the diverse cultures, languages, and traditions across the continent. It includes sculptures, masks, textiles, beadwork, and more.</p>
             <button onclick="showMoreArt()">Show More</button>
-            <div id="more-art" style="display: none;">
+            <div id="more-art" class="hidden">
                 <p>The purpose of African art is often to communicate spiritual beliefs, tell stories, or symbolize cultural values. It's an essential part of rituals and celebrations.</p>
             </div>
         </div>
     </section>
 
-    <section id="culture">
+    <section id="culture" class="fade-in">
         <div class="container">
             <h2>African Culture</h2>
             <p>Africa is home to thousands of distinct cultures, each with its own language, traditions, and beliefs. Music, dance, and oral storytelling are central to many African societies.</p>
         </div>
     </section>
 
-    <section id="history">
+    <section id="history" class="fade-in">
         <div class="container">
             <h2>History of Africa</h2>
             <p>The history of Africa is vast and varied, covering ancient civilizations such as Egypt, Mali, and Great Zimbabwe. It also includes the impact of colonization and the fight for independence.</p>
+        </div>
+    </section>
+
+
+    <section id="contact" class="fade-in">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us!</p>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -51,7 +77,5 @@
             <p>&copy; 2025 African Art & Culture. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
