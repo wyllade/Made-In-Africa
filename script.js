@@ -60,7 +60,29 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.innerHTML = "<p>Your cart is empty</p>";
             return;
         }
-
+// Add this to your existing DOMContentLoaded event listener
+document.querySelectorAll('.sidebar a, .user-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetPage = link.getAttribute('href');
+      
+      // Special handling for logout
+      if (targetPage === '#logout') {
+        logoutUser();
+        return;
+      }
+      
+      // Redirect to other pages
+      window.location.href = targetPage;
+    });
+  });
+  
+  function logoutUser() {
+    // Clear user session/cart
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('cart');
+    window.location.href = 'index.html'; // Redirect to home
+  }
         const total = cart.items.reduce((sum, item) => 
             sum + parseFloat(item.price.replace('$', '')), 0);
 
@@ -86,3 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
