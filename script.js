@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize cart
     document.getElementById("cart-count").textContent = cart.count;
 
-    // Add to cart
+    // Add to cart functionality
     document.querySelectorAll(".add-to-cart").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const card = e.target.closest(".product");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.querySelector("h3").textContent,
                 card.querySelector(".price").textContent
             );
-            
+
             // Visual feedback
             btn.textContent = "✓ Added";
             btn.style.backgroundColor = "#4CAF50";
@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.style.backgroundColor = "";
             }, 2000);
         });
-        
     });
 
     // Cart dropdown
@@ -60,30 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.innerHTML = "<p>Your cart is empty</p>";
             return;
         }
-// Add this to your existing DOMContentLoaded event listener
-document.querySelectorAll('.sidebar a, .user-menu a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetPage = link.getAttribute('href');
-      
-      // Special handling for logout
-      if (targetPage === '#logout') {
-        logoutUser();
-        return;
-      }
-      
-      // Redirect to other pages
-      window.location.href = targetPage;
-    });
-  });
-  
-  function logoutUser() {
-    // Clear user session/cart
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('cart');
-    window.location.href = 'index.html'; // Redirect to home
-  }
-        const total = cart.items.reduce((sum, item) => 
+
+        const total = cart.items.reduce((sum, item) =>
             sum + parseFloat(item.price.replace('$', '')), 0);
 
         dropdown.innerHTML = `
@@ -107,5 +84,35 @@ document.querySelectorAll('.sidebar a, .user-menu a').forEach(link => {
             dropdown.classList.add("hidden");
         }
     });
-});
 
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById("sidebar");
+    const toggleButton = document.getElementById("menu-toggle");
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+    }
+
+    // Handle user navigation
+    document.querySelectorAll(".user-menu a").forEach(link => {
+        link.addEventListener("click", (e) => {
+            const targetPage = e.target.getAttribute("href");
+
+            if (targetPage === "#logout") {
+                logoutUser();
+                return;
+            }
+
+            // Redirect to the target page
+            window.location.href = targetPage;
+        });
+    });
+
+    function logoutUser() {
+        localStorage.removeItem('userToken');
+        localStorage.removeItem('cart');
+        window.location.href = 'index.html'; // Redirect to home
+    }
+});
