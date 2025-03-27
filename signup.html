@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | African Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+                <small class="error-message"></small>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <small class="error-message"></small>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Create a password" required>
+                    <span class="toggle-password">👁</span>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-bar"></div>
+                    <small class="strength-text">Password Strength</small>
+                </div>
+                <small class="error-message"></small>
+            </div>
+            
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="signin.html">Sign In</a></p>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const signupForm = document.getElementById("signup-form");
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const passwordInput = document.getElementById("password");
+            const togglePassword = document.querySelector(".toggle-password");
+            const strengthBar = document.querySelector(".strength-bar");
+            const strengthText = document.querySelector(".strength-text");
+
+            // Password Strength Checker
+            passwordInput.addEventListener("input", () => {
+                const password = passwordInput.value;
+                let strength = 0;
+                
+                if (password.length >= 8) strength += 1;
+                if (/[A-Z]/.test(password)) strength += 1;
+                if (/[0-9]/.test(password)) strength += 1;
+                if (/[^a-zA-Z0-9]/.test(password)) strength += 1;
+
+                strengthBar.style.width = `${strength * 25}%`;
+
+                if (strength === 0) {
+                    strengthText.textContent = "Too Weak";
+                    strengthBar.style.backgroundColor = "#ff4d4d";
+                } else if (strength === 1) {
+                    strengthText.textContent = "Weak";
+                    strengthBar.style.backgroundColor = "#ff884d";
+                } else if (strength === 2) {
+                    strengthText.textContent = "Moderate";
+                    strengthBar.style.backgroundColor = "#ffcc00";
+                } else if (strength >= 3) {
+                    strengthText.textContent = "Strong";
+                    strengthBar.style.backgroundColor = "#28a745";
+                }
+            });
+
+            // Toggle Password Visibility
+            togglePassword.addEventListener("click", () => {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    togglePassword.textContent = "🙈";
+                } else {
+                    passwordInput.type = "password";
+                    togglePassword.textContent = "👁";
+                }
+            });
+
+            // Form Validation
+            signupForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                let valid = true;
+
+                // Name Validation
+                if (nameInput.value.trim() === "") {
+                    showError(nameInput, "Full name is required.");
+                    valid = false;
+                } else {
+                    clearError(nameInput);
+                }
+
+                // Email Validation
+                if (!validateEmail(emailInput.value)) {
+                    showError(emailInput, "Enter a valid email address.");
+                    valid = false;
+                } else {
+                    clearError(emailInput);
+                }
+
+                // Password Validation
+                if (passwordInput.value.length < 8) {
+                    showError(passwordInput, "Password must be at least 8 characters.");
+                    valid = false;
+                } else {
+                    clearError(passwordInput);
+                }
+
+                if (valid) {
+                    alert("Account created successfully!");
+                    // Redirect to login or dashboard
+                }
+            });
+
+            function validateEmail(email) {
+                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+            }
+
+            function showError(input, message) {
+                const errorMessage = input.nextElementSibling;
+                errorMessage.textContent = message;
+                errorMessage.style.color = "red";
+            }
+
+            function clearError(input) {
+                const errorMessage = input.nextElementSibling;
+                errorMessage.textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>
