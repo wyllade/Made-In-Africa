@@ -113,7 +113,7 @@ body {
   border-radius: 10px;
   width: 300px;
   text-align: center;
-  
+
 }
 
 .auth-container h2 {
@@ -270,8 +270,13 @@ button.btn:hover {
 
 /* Remove grayscale effect from product images */
 .product img {
-  width: 100%;
-  border-radius: 10px;
+  filter: grayscale(100%);  /* Makes images black and white */
+  opacity: 0.7;  /* Reduces brightness */
+}
+
+.product img {
+  filter: none;
+  opacity: 1;
 }
 
 
@@ -358,16 +363,46 @@ button.btn:hover {
   background: #ccc;
 }
 
-/* Footer */
 .footer {
+  background-color: #000;
+  color: #fff;
   text-align: center;
-  padding: 30px;
-  background: #1c1c1c;
-  border-radius: 10px;
-  margin-top: 40px;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-.footer p {
-  font-size: 16px;
-  color: #ccc;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin: 10px 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #FFD700; /* Gold Hover Effect */
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-media a img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-media a img:hover {
+  transform: scale(1.1);
 }

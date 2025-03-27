@@ -37,3 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCartUI();
     });
 });
+
+document.querySelectorAll(".product img").forEach(img => {
+    img.style.filter = "grayscale(100%)";
+});
