@@ -277,15 +277,16 @@ html, body {
 .cart-section {
   position: relative;
   top: 0;
-  right: 220px;
+  right: 0;
+  left: auto;
   width: 250px;
   background-color: black;
   color: white;
-  padding: 20px;
+  padding: 40px;
   box-sizing: border-box;
   height: 100vh;
   overflow-y: auto;
-  z-index: 9;
+  z-index: 10;
 }
 
 .cart-container {
