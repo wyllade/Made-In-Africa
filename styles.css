@@ -331,6 +331,34 @@ button.btn:hover {
   border-radius: 15px;
 }
 
+.cart-section {
+    position: relative;
+    top: 0;
+    right: 220px; /* Ensure it's placed to the left of the footer */
+    width: 250px;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto; /* Allows scrolling if needed */
+    z-index: 9; /* Below the footer */
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  justify-content: center; /* Centers content vertically */
+  text-align: center;
+  height: 100vh; /* Makes sure it takes up the full viewport height */
+}
+
+
+/* Ensure content doesn't get hidden */
+.main-content {
+    margin-right: 450px; /* Leaves space for both footer & cart */
+}
 #cart h2 {
   font-size: 28px;
   color: white;
@@ -409,27 +437,26 @@ button.btn:hover {
 
 .footer {
   position: fixed;
-  right: 0;
-  top: 0;
-  width: 200px; /* Same as the sidebar */
-  height: 100vh;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background-color: black;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   font-size: 14px;
   font-weight: bold;
   padding: 20px;
   box-sizing: border-box;
+  z-index: 10;
+  transition: background-color 0.3s ease-in-out;
+
 }
 
 .footer a {
   color: white;
   text-decoration: none;
   margin: 10px 0;
+  transition: color 0.3s ease-in-out;
 }
 
 .footer a:hover {

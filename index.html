@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>African Marketplace</title>
+    <title>Made In Africa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -12,7 +12,7 @@
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">African Marketplace</div>
+            <div class="logo">Made In Africa</div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -73,11 +73,29 @@
                         <p>$50</p>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
+                    <div class="product" data-id="7" data-name="Vintage Wall Art" data-price="30">
+                        <img src="images/imge.jpeg" alt="Vintage Wall Art">
+                        <h3>Vintage Wall Art</h3>
+                        <p>$30</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="product" data-id="8" data-name="Sculpture" data-price="100">
+                        <img src="images/tradition.jpeg" alt="Sculpture">
+                        <h3>Sculpture</h3>
+                        <p>$100</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="product" data-id="9" data-name="Arcrilic Painting" data-price="80">
+                        <img src="images/beauty.jpeg" alt="Arcrilic Painting">
+                        <h3>Wooden Plank</h3>
+                        <p>$80</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
                 </div>
             </section>
 
             <!-- Shopping Cart -->
-            <section id="cart">
+            <section id="cart" style="display: none;">
                 <h2>Your Cart</h2>
                 <ul id="cart-items"></ul>
                 <p>Total: $<span id="total-price">0</span></p>
@@ -85,24 +103,23 @@
             </section>
         </main>
     </div>
-    <!-- Footer Section -->
-<footer class="footer">
-  <div class="footer-container">
-      <p>&copy; 2025 African Marketplace. All Rights Reserved.</p>
-      <div class="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-      </div>
-      <div class="social-media">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-    
-  </div>
-</footer>
 
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 African Marketplace. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
