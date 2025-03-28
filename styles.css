@@ -1,5 +1,5 @@
 /* General Styles */
-body, html {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -8,158 +8,14 @@ body, html {
   background-color: #121212;
   color: white;
   display: flex;
+  flex-direction: column; /* Stack elements vertically */
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #121212;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.auth-container {
-  background: rgba(34, 34, 34, 0.95);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #fff;
-  background: #222;
-  color: white;
-  border-radius: 5px;
-}
-
-.btn {
-  width: 100%;
-  padding: 12px;
-  background: white;
-  color: black;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  border-radius: 5px;
-}
-
-.btn:hover {
-  background: grey;
-  color: white;
-}
-
-.password-container {
-  position: relative;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.password-strength {
-  margin-top: 5px;
-  width: 100%;
-  height: 5px;
-  background: #444;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.strength-bar {
-  height: 100%;
-  width: 0%;
-  background: red;
-  transition: width 0.3s ease-in-out;
-}
-
-.strength-text {
-  font-size: 12px;
-  color: #aaa;
-  display: block;
-  margin-top: 5px;
-}
-
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-/* Authentication Container */
-.auth-container {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
-
-}
-
-.auth-container h2 {
-  margin-bottom: 20px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  background: #333;
-  color: #fff;
-}
-
-button.btn {
-  width: 100%;
-  padding: 10px;
-  background: #fff;
-  color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button.btn:hover {
-  background: #ddd;
-}
-
-.back-link {
-  display: block;
-  margin-top: 10px;
-  color: #bbb;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  color: #fff;
-}
-
-/* Container */
+/* Ensure the main container takes full height */
 .container {
+  flex: 1; /* Pushes footer down */
   display: flex;
-  width: 100%;
-  height: 100vh;
+  flex-direction: column;
 }
 
 /* Sidebar */
@@ -216,7 +72,7 @@ button.btn:hover {
   width: calc(100% - 250px);
   padding: 50px;
   background: #1c1c1c;
-  flex-grow: 1;
+  flex-grow: 1; /* Expands to fill space */
 }
 
 /* Hero Section */
@@ -267,18 +123,6 @@ button.btn:hover {
   font-size: 30px;
   color: white;
 }
-
-/* Remove grayscale effect from product images */
-.product img {
-  filter: grayscale(100%);  /* Makes images black and white */
-  opacity: 0.7;  /* Reduces brightness */
-}
-
-.product img {
-  filter: none;
-  opacity: 1;
-}
-
 
 .product-container {
   display: grid;
@@ -332,33 +176,27 @@ button.btn:hover {
 }
 
 .cart-section {
-    position: relative;
-    top: 0;
-    right: 220px; /* Ensure it's placed to the left of the footer */
-    width: 250px;
-    background-color: black;
-    color: white;
-    padding: 20px;
-    box-sizing: border-box;
-    height: 100vh;
-    overflow-y: auto; /* Allows scrolling if needed */
-    z-index: 9; /* Below the footer */
+  position: relative;
+  top: 0;
+  right: 220px;
+  width: 250px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 9;
 }
 
 .cart-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers content horizontally */
-  justify-content: center; /* Centers content vertically */
+  align-items: center;
   text-align: center;
-  height: 100vh; /* Makes sure it takes up the full viewport height */
+  height: 100vh;
 }
 
-
-/* Ensure content doesn't get hidden */
-.main-content {
-    margin-right: 450px; /* Leaves space for both footer & cart */
-}
 #cart h2 {
   font-size: 28px;
   color: white;
@@ -391,15 +229,19 @@ button.btn:hover {
   background: #ccc;
 }
 
+/* Footer */
 .footer {
   background-color: #000;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 20px;
-  margin-top: 20px;
   font-size: 14px;
+  font-weight: bold;
+  padding: 20px;
+  width: 100%;
+  margin-top: auto; /* Pushes footer to the bottom */
 }
 
+/* Footer Container */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -410,7 +252,7 @@ button.btn:hover {
 }
 
 .footer-links a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   margin: 0 15px;
   transition: color 0.3s ease-in-out;
@@ -420,6 +262,7 @@ button.btn:hover {
   color: #FFD700; /* Gold Hover Effect */
 }
 
+/* Social Media */
 .social-media {
   margin-top: 10px;
 }
@@ -435,40 +278,12 @@ button.btn:hover {
   transform: scale(1.1);
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 10;
-  transition: background-color 0.3s ease-in-out;
-
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
-  margin: 10px 0;
-  transition: color 0.3s ease-in-out;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* Ensure main content has space for the footer */
+/* Ensure the main content has space for the footer */
 .main-content {
-  margin-right: 220px; /* Adjust to match the footer width */
+  margin-right: 220px;
 }
 
-/* Style the social media icons */
+/* Social Media Links */
 .social-media a {
   color: white;
   margin: 5px;
