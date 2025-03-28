@@ -41,3 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelectorAll(".product img").forEach(img => {
     img.style.filter = "grayscale(100%)";
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.querySelector(".toggle-password");
+
+    // Toggle Password Visibility
+    togglePassword.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.textContent = "🙈";
+        } else {
+            passwordInput.type = "password";
+            togglePassword.textContent = "👁";
+        }
+    });
+});
